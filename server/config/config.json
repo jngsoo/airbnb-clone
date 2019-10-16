@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "jngsoo",
+    "password": "jngsoo2933",
+    "database": "airbnb",
+    "host": "220.230.118.56",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "jngsoo",
+    "password": "jngsoo2933",
+    "database": "database_test",
+    "host": "220.230.118.56",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "jngsoo",
+    "password": "jngsoo2933",
+    "database": "database_production",
+    "host": "220.230.118.56",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}
