@@ -4,6 +4,10 @@ const User = require('../models').User;
 const jwt = require('jsonwebtoken')
 
 /* GET home page. */
+router.get('/', function(req, res, next) {
+    res.send('home')
+})
+
 router.get('/givemetoken', function(req, res, next) {
     const token = jwt.sign({ 
         user: 'bar' 
@@ -16,8 +20,6 @@ router.get('/mytoken', function(req, res, next) {
     console.log(jwt.verify(req.cookies.toktoken, 'shhhhh'))
     res.send(`your cookies => ${JSON.stringify(req.cookies)}`)
 })
-
-
 
 
 module.exports = router;
