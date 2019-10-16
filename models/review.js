@@ -1,14 +1,19 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Review = sequelize.define('Review', {
-    room_id: DataTypes.STRING,
-    guest_id: DataTypes.STRING,
+  const Review = sequelize.define('review', {
+    review_id: {
+        type:DataTypes.INTEGER,
+        primaryKey: true
+    },
+    fk_room_id: DataTypes.INTEGER,
+    guest_id: DataTypes.INTEGER,
     guest_name: DataTypes.STRING,
-    host_id: DataTypes.STRING,
     host_name: DataTypes.STRING,
     comment: DataTypes.STRING,
     rate: DataTypes.INTEGER
-  }, {});
+  }, {
+    underscored: true
+  });
   Review.associate = function(models) {
     // associations can be defined here
   };
