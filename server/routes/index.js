@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
+const jwt = require('../util/jwt');
 const passport = require('../middleware/passport');
 const User = require('../models').User;
 const secret = require('../secret');
@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     let userInfo = {}
     userInfo.userName = ''
     if (req.cookies.user_info) {
-        userInfo = jwt.verify(req.cookies.user_info, secret.secretKey)
+        userInfo = jwt.decodeUserToken(req)
     }
     res.send(/*html*/`
         <a href="/auth/naver">네아로</a><br><br><br>

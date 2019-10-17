@@ -10,8 +10,7 @@ passport.use(new NaverStrategy({
     callbackURL: secret.naver_oauth_callback_url
     },
     function(accessToken, refreshToken, profile, done) {
-        console.log(profile)
-
+        // console.log(profile)
         User.findOrCreate({ 
             where: {user_id: profile.id},
             defaults: {
