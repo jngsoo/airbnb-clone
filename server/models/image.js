@@ -2,10 +2,10 @@
 module.exports = (sequelize, DataTypes) => {
   const Image = sequelize.define('image', {
     image_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT(11),
         primaryKey: true
     },
-    fk_room_id: DataTypes.INTEGER,
+    fk_room_id: DataTypes.BIGINT(11),
     file_name: DataTypes.STRING,
     path: DataTypes.STRING
   }, {

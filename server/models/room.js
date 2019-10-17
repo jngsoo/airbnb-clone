@@ -2,10 +2,10 @@
 module.exports = (sequelize, DataTypes) => {
   const Room = sequelize.define('room', {
     room_id: {
-        type:DataTypes.INTEGER,
+        type:DataTypes.BIGINT(11),
         primaryKey: true
     },
-    fk_host_id: DataTypes.INTEGER,
+    fk_host_id: DataTypes.BIGINT(11),
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
     host_name: DataTypes.STRING,

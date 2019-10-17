@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
+const passport = require('../config/passport');
 const User = require('../models').User;
-const jwt = require('jsonwebtoken')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.send('home')
+    res.send('<h1>hello world</h1>')
 })
 
 router.get('/login', function(req, res, next) {
