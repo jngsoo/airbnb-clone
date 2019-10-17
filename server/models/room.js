@@ -22,5 +22,8 @@ module.exports = (sequelize, DataTypes) => {
   Room.associate = function(models) {
     // associations can be defined here
   };
+  Room.getAllTheHostRooms = async function(host_id) {
+      return await Room.findAll({where: {fk_host_id: host_id}})
+  }
   return Room;
 };

@@ -10,9 +10,14 @@ module.exports = (sequelize, DataTypes) => {
     guest_name: DataTypes.STRING,
     host_name: DataTypes.STRING,
     comment: DataTypes.STRING,
-    rate: DataTypes.INTEGER
+    rate: DataTypes.INTEGER,
+    createdAt: {
+        type: DataTypes.DATE(3),
+        defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
+    }
   }, {
-    underscored: true
+    underscored: true,
+    timestamps: false
   });
   Review.associate = function(models) {
     // associations can be defined here

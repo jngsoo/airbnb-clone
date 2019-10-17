@@ -23,5 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     
   };
+  User.getAllSuperHosts = async function() {
+    return await User.findAll({where: {type: 'super_host'}});
+  };
   return User;
 };

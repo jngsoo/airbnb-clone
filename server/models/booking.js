@@ -5,8 +5,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BIGINT(11),
         primaryKey: true
     },
-    check_in : DataTypes.STRING,
-    check_out: DataTypes.STRING,
+    check_in : DataTypes.DATEONLY,
+    check_out: DataTypes.DATEONLY,
     fk_guest_id: DataTypes.BIGINT(11),
     guest_name: DataTypes.STRING,
     host_id: DataTypes.BIGINT(11),
@@ -17,8 +17,13 @@ module.exports = (sequelize, DataTypes) => {
     guest_adult: DataTypes.INTEGER,
     guest_children: DataTypes.INTEGER,
     guest_infant: DataTypes.INTEGER,
-    price_total: DataTypes.INTEGER
+    price_total: DataTypes.INTEGER,
+    createdAt: {
+        type: DataTypes.DATE(3),
+        defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
+    },
   }, {
+    timestamps: false,
     underscored: true
   });
   Booking.associate = function(models) {

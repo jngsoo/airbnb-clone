@@ -36,6 +36,9 @@ router.get('/login', function(req, res, next) {
     `)
 })
 
+router.get('/super', async function(req, res, next) {
+    res.json(await User.getAllSuperHosts())
+})
 
 
 module.exports = router;
