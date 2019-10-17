@@ -10,7 +10,13 @@ router.get('/', function(req, res, next) {
     let userInfo = {}
     userInfo.userName = ''
     if (req.cookies.user_info) {
-        userInfo = jwt.decodeUserToken(req)
+        try {
+            userInfo = jwt.decodeUserToken(req)
+        } catch(err) {
+            if (err.message === 'jwt_expired') {
+                res.cookie('user_info',null,{expires: new Date(Date.now())})
+            }
+        }
     }
     res.send(/*html*/`
         <a href="/auth/naver">네아로</a><br><br><br>

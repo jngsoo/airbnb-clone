@@ -12,7 +12,7 @@ module.exports = {
             secret.secretKey,
             {expiresIn: '2h'
         });
-    res.cookie('user_info', token)
+        res.cookie('user_info', token, { expires: new Date(Date.now() + (60*60*2)), httpOnly: true })
     },
     decodeUserToken(req) {
         return jwt.verify(req.cookies.user_info, secret.secretKey)
