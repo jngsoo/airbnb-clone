@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     number_of_reviews: DataTypes.INTEGER,
     rate: DataTypes.INTEGER
   }, {
+    timestamps: false,
     underscored: true
   });
   Room.associate = function(models) {

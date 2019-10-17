@@ -7,7 +7,8 @@ const sequelize = require('./models').sequelize
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
-const passport = require('./config/passport');
+const searchRouter = require('./routes/search');
+const passport = require('./middleware/passport');
 
 const app = express();
 
@@ -23,5 +24,6 @@ app.use(passport.initialize())
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
+app.use('/search', searchRouter)
 
 module.exports = app

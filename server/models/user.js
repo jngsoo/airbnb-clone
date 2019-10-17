@@ -7,11 +7,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     name: DataTypes.STRING,
     email: DataTypes.STRING,
-    type: DataTypes.STRING,
-    createdAt: {
+    type: {
         type: DataTypes.STRING,
-        allowNull: true, 
-        defaultValue: DataTypes.timestamps
+        defaultValue: 'guest'
+    },
+    createdAt: {
+        type: DataTypes.DATE(3),
+        defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
     }
   }, { // options???
     underscored: true,

@@ -12,11 +12,11 @@ const Review = require('./review')(sequelize, Sequelize);
 
 const setOneToManyRelation = (one, many, foreignKey, sourceKey) => {
     one.hasMany(many, {
-        foreignKey: foreignKey,
+        foreignKey,
         sourceKey: sourceKey
     })
     many.belongsTo(one, {
-        foreignKey: foreignKey,
+        foreignKey,
         targetKey: sourceKey
     })
 }

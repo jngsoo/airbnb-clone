@@ -5,7 +5,7 @@ module.exports = {
     naver_oauth_client_id : "uNFpLK90oP9ttduhVUGv",
     naver_oauth_client_secret: "N7vWvTUH8g",
     naver_oauth_callback_url: "http://localhost:3000/auth/naver/callback",
-
+    secretKey: "fjeiwofjawoifjioafjowa"
 }
 
 
