@@ -1,4 +1,4 @@
-node_modules
+
 ref.md 
 /config/config.json
-secret.js 
+server/secret.js 

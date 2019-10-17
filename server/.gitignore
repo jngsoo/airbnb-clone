@@ -1,5 +1,5 @@
-server/node-modules
-server/node-modules
-server/ref.md 
-server/config/config.json
-server/secret.js
+/node_modules
+/node_modules
+/ref.md 
+/config/config.json
+/secret.js
