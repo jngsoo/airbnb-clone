@@ -22,5 +22,8 @@ module.exports = (sequelize, DataTypes) => {
   Review.associate = function(models) {
     // associations can be defined here
   };
+  Review.getAllTheRoomReviews = async function(room_id) {
+    return await Review.findAll({where: {fk_roomt_id: room_id}})
+  }
   return Review;
 };

@@ -6,14 +6,10 @@ const User = require('../models').User;
 const Room = require('../models').Room;
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
     // res.send(req.query)
-    const area = req.query.area
-    console.log(area)
-    Room.findAll({ where: { city: area } }).then(rooms => {
-        res.json(rooms)
-    })
-
+    const queryArea = req.query.area
+    res.json(await Room.getAllTheCityRooms(queryArea))
 })
 
 

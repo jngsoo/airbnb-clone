@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('../util/jwt');
-const passport = require('../middleware/passport');
 const User = require('../models').User;
-const secret = require('../secret');
+
    
 /* GET home page. */
 router.get('/', function(req, res, next) {

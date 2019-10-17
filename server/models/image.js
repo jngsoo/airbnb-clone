@@ -14,5 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   Image.associate = function(models) {
     // associations can be defined here
   };
+  Image.getAllTheRoomImages = async function(room_id) {
+    return await Image.findAll({where: {fk_roomt_id: room_id}})
+  }
   return Image;
 };

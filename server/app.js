@@ -12,7 +12,7 @@ const passport = require('./middleware/passport');
 
 const app = express();
 
-sequelize.sync({force: true}); // Put {force : true} to force change db
+// sequelize.sync({force: true}); // Put {force : true} to force change db
 
 app.use(logger('dev'));
 app.use(express.json());

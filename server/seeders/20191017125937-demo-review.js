@@ -1,5 +1,7 @@
 'use strict';
 
+const seedReviews = []
+               
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('reviews', [
@@ -19,7 +21,7 @@ module.exports = {
             guest_name: 'anonymous',
             host_name: 'jngsoo',
             comment: 'bad',
-            rate: 5
+            rate: 1
         }
 
     ])
@@ -36,12 +38,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('reviews', null, {});
   }
 };

@@ -12,3 +12,8 @@ npx sequelize-cli db:migrate
 ```bash
 npx sequelize-cli seed:generate --name demo-user
 ```
+
+- sequelize cli -> seed undo specific seed file
+```bash
+npx sequelize-cli db:seed:undo --seed 20191017125937-demo-review
+```
