@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-const secret = require('../secret');
+require('dotenv').config();
+const TWO_HOURS = 1000*60*60*2;
 
 module.exports = {
     issueNewToken(req, res) {
@@ -9,12 +10,12 @@ module.exports = {
             userName: userInfo.name,
             type: userInfo.type
             },
-            secret.secretKey,
+            process.env.JWT_SECRET_KEY,
             {expiresIn: '2h'
         });
-        res.cookie('user_info', token, { expires: new Date(Date.now() + (60*60*2)), httpOnly: true })
+        res.cookie('user_info', token, { expires: new Date(Date.now() + TWO_HOURS), httpOnly: true })
     },
     decodeUserToken(req) {
-        return jwt.verify(req.cookies.user_info, secret.secretKey)
+        return jwt.verify(req.cookies.user_info, process.env.JWT_SECRET_KEY)
     }
 }

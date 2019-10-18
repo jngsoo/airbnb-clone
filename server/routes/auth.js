@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require('../models').User;
 const passport = require('../middleware/passport');
 const jwt = require('../util/jwt');
-const secret = require('../secret');
 
 router.get('/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login']}));
 

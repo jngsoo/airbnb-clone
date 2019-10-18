@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     };
     Room.getAllTheCityRooms = async function(city) {
         return await Room.findAll({where: {city: city}})
-    }
+    };
+    
     return Room;
 };
