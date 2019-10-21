@@ -1,0 +1,11 @@
+.LinkBtn {
+    border: solid 0.05rem white;
+    margin: auto;
+    color: dimgray;
+}
+
+.LinkBtn:hover {
+    height: 3rem;
+    border-bottom: solid 0.08rem;
+    cursor: pointer;
+}
