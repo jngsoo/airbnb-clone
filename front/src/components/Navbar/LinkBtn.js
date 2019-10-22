@@ -1,11 +1,11 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 const StyledDiv = styled.div`
     border: solid 0.05rem white;
     margin: auto;
     color: dimgray;
-
+    
     &:hover {
         height: 3rem;
         border-bottom: solid 0.08rem;
@@ -13,12 +13,17 @@ const StyledDiv = styled.div`
     }
 `;
 
+const StyledAnchor = styled.a`
+    color: dimgray; 
+    text-decoration: none;
+`;
+
 const LinkBtn = (props) => {
     return (
         <StyledDiv className='LinkBtn'>
-            <a href="http://localhost:5000/auth/google">
+            <StyledAnchor href="http://localhost:5000/auth/google">
             <p>{props.name}</p>
-            </a>
+            </StyledAnchor>
         </StyledDiv>
     )
 }

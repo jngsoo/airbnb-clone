@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 const StyledDiv = styled.div`
     height: 2rem;
@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
     display: flex;
     color: gray;
     margin: auto auto auto 0.5rem;
-
+    
     &:hover {
         cursor: pointer;
     }
@@ -17,7 +17,8 @@ const StyledImg = styled.img`
     height: 1rem;
     width: 1rem;
     margin: auto 1rem auto auto;
-`
+    
+`;
 
 const OptionalSearchBtn = (props) => {
     return (
@@ -26,6 +27,6 @@ const OptionalSearchBtn = (props) => {
             <p>{props.name}</p>
         </StyledDiv>
     );
-}
+};
 
 export default OptionalSearchBtn;
