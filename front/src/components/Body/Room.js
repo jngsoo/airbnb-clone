@@ -19,7 +19,7 @@ const Room = (props) => {
     return (
         <StyledDiv>
             <RoomImg/>
-            <RoomInfo/>
+            <RoomInfo price={props.price} score={props.score}/>
         </StyledDiv>
     )
 };

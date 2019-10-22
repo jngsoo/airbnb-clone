@@ -9,8 +9,8 @@ const StyledDiv = styled.div`
 const RoomsContainer = (props) => {
     return (
         <StyledDiv>
-            <Room/>
-            <Room/>
+            <Room price={'34,214'} score={4.92}/>
+            <Room price={'25,112'} score={3.91}/>
             <Room/>
             <Room/>
             <Room/><Room/><Room/><Room/><Room/><Room/><Room/><Room/>

@@ -1,23 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import Rate from './Rate';
+import Price from "./Price";
 
 const MinorInfo = styled.div`
-    border: solid 0.05rem lightgray;
     display: flex;
     justify-content: space-between;
-    
-    & > * {
-        border: solid gray 0.05rem
-    }
 
-    
 `;
 
 const RoomMinorInfo = (props) => {
     return (
         <MinorInfo>
-            <span>별</span>
-            <p>가격</p>
+            <Rate score={props.score}/>
+            <Price price={props.price}/>
         </MinorInfo>
     )
 };
