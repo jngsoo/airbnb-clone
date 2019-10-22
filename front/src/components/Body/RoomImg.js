@@ -2,15 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledImg = styled.img`
-    flex:4
+    width: 40%;
     margin: 0.25rem; 
-    border: solid 0.025rem lightgray;
     border-radius: 0.25rem;
 `;
 
 const RoomImg = (props) => {
     return (
-        <StyledImg/>
+        <StyledImg src={'https://a0.muscache.com/im/pictures/c448d8f3-3c31-4119-b69f-80f251621f94.jpg?aki_policy=large'}/>
     )
 };
 

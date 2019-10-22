@@ -5,8 +5,10 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
 const StyledCalendar = styled.div`
+    top: 5rem;
+    z-index: 3;
     visibility: ${props => props.pop ? 'visible' : 'hidden'}
-    position: absolute;
+    position: fixed;
 `;
 
 const Calendar = () => {
