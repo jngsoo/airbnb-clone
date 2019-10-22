@@ -34,6 +34,7 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
+    return queryInterface.bulkDelete('bookings', null, {});
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.

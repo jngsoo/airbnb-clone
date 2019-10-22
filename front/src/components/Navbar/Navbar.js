@@ -1,8 +1,22 @@
 import React, {useState} from 'react';
-import './Navbar.css';
+import styled, {css} from 'styled-components';
 import logo from './airbnb.svg';
 import SearchBar from './SearchBar';
 import UserInfo from './UserInfo';
+
+const StyledNavbar = styled.div`
+    font-family: 'Nanum Gothic', sans-serif;
+    display: flex;
+    border-bottom: solid 0.05rem lightgray;
+    height: 5rem;
+`;
+
+const StyledLogo = styled.img`
+    float: left;
+    margin: auto 0 auto 2rem;
+    width: 2rem;
+    height: 2rem;
+`;
 
 const Navbar = () => {
     const [total, setTotal] = useState(0);
@@ -12,8 +26,8 @@ const Navbar = () => {
     };
 
     return (
-        <div className='navbar'>
-            <img className='logo' src={logo}/>
+        <StyledNavbar className='navbar'>
+            <StyledLogo className='logo' src={logo}/>
             <SearchBar/>
             <UserInfo/>
 
@@ -22,7 +36,7 @@ const Navbar = () => {
             {/*<AirbnbChild onUpdate={setTotalHandler} type={'성인'}/>*/}
             {/*<AirbnbChild onUpdate={setTotalHandler} type={'어린이'}/>*/}
             {/*<AirbnbChild onUpdate={setTotalHandler} type={'유아'}/>*/}
-        </div>
+        </StyledNavbar>
     );
 };
 

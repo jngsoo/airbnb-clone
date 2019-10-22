@@ -6,10 +6,11 @@ const jwt = require('../util/jwt');
 
 router.get('/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login']}));
 
-router.get('/google/callback', passport.authenticate('google', {failureRedirect: '/login' }),
+router.get('/google/callback', passport.authenticate('google', {failureRedirect: 'http://localhost:3000' }),
     function(req, res) {
         if(req.user) jwt.issueNewToken(req, res);
-        return res.redirect('/')
+        console.log(req.user);
+        return res.redirect('http://localhost:3000');
     }
 );
 

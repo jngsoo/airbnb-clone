@@ -8,7 +8,6 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const searchRouter = require('./routes/search');
 const passport = require('./middleware/passport');
-
 const app = express();
 
 // sequelize.sync({force: true}); // Put {force : true} to force change db

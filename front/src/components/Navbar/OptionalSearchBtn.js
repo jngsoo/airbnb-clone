@@ -1,12 +1,30 @@
 import React from 'react';
-import './OptionalSearchBtn.css';
+import styled, {css} from 'styled-components';
+
+const StyledDiv = styled.div`
+    height: 2rem;
+    align-items: center;
+    display: flex;
+    color: gray;
+    margin: auto auto auto 0.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+const StyledImg = styled.img`
+    height: 1rem;
+    width: 1rem;
+    margin: auto 1rem auto auto;
+`
 
 const OptionalSearchBtn = (props) => {
     return (
-        <div className='OptionalSearchBtn'>
-            <img src={props.icon} alt={props.name}/>
+        <StyledDiv>
+            <StyledImg src={props.icon} alt={props.name}/>
             <p>{props.name}</p>
-        </div>
+        </StyledDiv>
     );
 }
 

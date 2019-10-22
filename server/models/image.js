@@ -18,4 +18,4 @@ module.exports = (sequelize, DataTypes) => {
     return await Image.findAll({where: {fk_roomt_id: room_id}})
   }
   return Image;
-};
+}; //fake
