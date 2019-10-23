@@ -5,9 +5,11 @@ import styled from 'styled-components';
 import SearchInput from './SearchInput';
 import OptionalSearchBtn from "./OptionalSearchBtn";
 import ModalCalendar from "./ModalCalendar";
+import ModalGuests from "./ModalGuests";
 
 const SearchBar = () => {
-    const [popState, setPopState] = useState(false);
+    const [calendarPopState, setCalendarPopState] = useState(false);
+    const [guestsPopState, setGuestsPopState] = useState(false);
     const StyledDiv = styled.div`
         display: flex;
         border: solid 0.05rem lightgray;
@@ -19,7 +21,10 @@ const SearchBar = () => {
 `;
 
     const popCalendar = () => {
-        setPopState(!popState)
+        setCalendarPopState(!calendarPopState);
+    };
+    const popGuests = () => {
+        setGuestsPopState(!guestsPopState);
     };
 
     return (
@@ -27,9 +32,10 @@ const SearchBar = () => {
             <StyledDiv>
                 <SearchInput/>
                 <OptionalSearchBtn onClick={popCalendar} name="날짜" icon={calendarIcon}/>
-                <OptionalSearchBtn name="인원" icon={guestsIcon}/>
+                <OptionalSearchBtn onClick={popGuests} name="인원" icon={guestsIcon}/>
             </StyledDiv>
-            <ModalCalendar onClick={popCalendar} pop={popState}/>
+            <ModalCalendar onClick={popCalendar} pop={calendarPopState}/>
+            <ModalGuests onClick={popGuests} pop={guestsPopState}/>
         </>
     )
 };
