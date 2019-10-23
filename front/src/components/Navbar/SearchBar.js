@@ -1,9 +1,9 @@
 import React, {useState} from "react";
+import calendarIcon from './calendar.svg';
+import guestsIcon from './guests.svg'
 import styled from 'styled-components';
 import SearchInput from './SearchInput';
 import OptionalSearchBtn from "./OptionalSearchBtn";
-import calendarIcon from './calendar.svg';
-import guestsIcon from './guests.svg'
 import ModalCalendar from "./ModalCalendar";
 
 const SearchBar = () => {
@@ -29,7 +29,7 @@ const SearchBar = () => {
                 <OptionalSearchBtn onClick={popCalendar} name="날짜" icon={calendarIcon}/>
                 <OptionalSearchBtn name="인원" icon={guestsIcon}/>
             </StyledDiv>
-            <ModalCalendar pop={popState}/>
+            <ModalCalendar onClick={popCalendar} pop={popState}/>
         </>
     )
 };

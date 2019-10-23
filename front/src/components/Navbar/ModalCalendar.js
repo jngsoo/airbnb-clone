@@ -7,13 +7,29 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 const StyledCalendar = styled.div`
     left: 0;
     top: 5rem;
+    background-color: white;
+    border: solid white 0.05rem;
     z-index: 1;
     visibility: ${props => props.pop ? 'visible' : 'hidden'}
     position: fixed;
 `;
+const StyledBtnContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`;
+const StyledBtn = styled.div`
+    padding: 1rem;
+    border: solid 0.05rem lightgray;
+    border-radius: 0.5rem;
+    margin: auto 2rem 2rem 0;
+    
+    &:hover {
+        cursor: pointer;
+        background-color: lightgray;
+    }
+`;
 
 const ModalCalendar = (props) => {
-    const [pop,setPop] = useState(true);
     const [selectionRange, setSelectionRange] = useState({
         startDate: new Date(),
         endDate: new Date(),
@@ -28,6 +44,12 @@ const ModalCalendar = (props) => {
         })
         // console.log(`${{range.selection.startDate}\n${}}`)
     };
+    const confirmDateRange = () => {
+        props.onClick();    // ModalCalendar 닫기
+        const startDate = selectionRange.startDate.toLocaleDateString();
+        const endDate = selectionRange.endDate.toLocaleDateString();
+        alert(`${startDate}\n${endDate}`);
+    };
 
     return (
             <StyledCalendar pop={props.pop}>
@@ -39,9 +61,10 @@ const ModalCalendar = (props) => {
                     moveRangeOnFirstSelection={true}
                     color={'black'}
                 />
-                <div>
-                    {'확인'}
-                </div>
+                <StyledBtnContainer>
+                    <StyledBtn onClick={confirmDateRange}>확인</StyledBtn>
+                    <StyledBtn onClick={props.onClick}>취소</StyledBtn>
+                </StyledBtnContainer>
             </StyledCalendar>
     )
 };
