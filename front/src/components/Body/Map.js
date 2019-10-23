@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledMap = styled.div`
-    top: 5rem;
+    top: 8rem;
     position: sticky;
     z-index: -1;
     height: 43rem;

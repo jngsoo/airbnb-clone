@@ -20,8 +20,6 @@ const StyledImg = styled.img`
     margin: auto 1rem auto auto; 
 `;
 
-
-
 const OptionalSearchBtn = (props) => {
     return (
         <>

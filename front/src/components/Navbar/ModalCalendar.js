@@ -6,7 +6,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 
 const StyledCalendar = styled.div`
     left: 0;
-    top: 5rem;
+    top: 8rem;
     background-color: white;
     border: solid white 0.05rem;
     z-index: 1;
@@ -63,7 +63,7 @@ const ModalCalendar = (props) => {
                 />
                 <StyledBtnContainer>
                     <StyledBtn onClick={confirmDateRange}>확인</StyledBtn>
-                    <StyledBtn onClick={props.onClick}>취소</StyledBtn>
+                    <StyledBtn onClick={props.onClick}>닫기</StyledBtn>
                 </StyledBtnContainer>
             </StyledCalendar>
     )

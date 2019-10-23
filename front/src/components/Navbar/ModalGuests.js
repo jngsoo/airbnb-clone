@@ -8,7 +8,7 @@ const StyledDiv = styled.div`
     position: fixed;
     height: 15rem;
     width: 20rem;
-    margin-top: 5rem;
+    margin-top: 8rem;
     left: 29%;
     background-color: white;
     
@@ -46,14 +46,26 @@ const ConfirmBtn = styled.div`
     }
 `;
 const ModalGuests = (props) => {
+
+    const confirmGuests = () => {
+        props.onClick() // ModalGuest 닫기
+        const nOfAdult = props.counter.adult.count,
+              nOfChildren = props.counter.children.count,
+              nOfInfant = props.counter.infant.count
+        alert(`성인 : ${nOfAdult}명\n
+               어린이 : ${nOfChildren}명\n
+               유아 : ${nOfInfant}명\n
+        `)
+    };
+
     return (
         <StyledDiv pop={props.pop}>
-            <GuestType type='성인'/>
-            <GuestType type='어린이'/>
-            <GuestType type='유아'/>
+            <GuestType counter={props.counter.adult} onUpdate={props.onUpdate} type='성인'/>
+            <GuestType counter={props.counter.children} onUpdate={props.onUpdate} type='어린이'/>
+            <GuestType counter={props.counter.infant} onUpdate={props.onUpdate} type='유아'/>
             <StyledBtnContainer>
-                <CancelBtn>삭제</CancelBtn>
-                <ConfirmBtn>확인</ConfirmBtn>
+                <CancelBtn onClick={props.init}>삭제</CancelBtn>
+                <ConfirmBtn onClick={confirmGuests}>확인</ConfirmBtn>
             </StyledBtnContainer>
         </StyledDiv>
     )
