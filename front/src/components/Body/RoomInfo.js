@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import RoomMinorInfo from "./RoomMinorInfo";
 
 const StyledInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     margin: 0.25rem 1.5rem 0.25rem 1.5rem;
     width: 60%;
     color: dimgray;
@@ -16,9 +19,9 @@ const StyledInfo = styled.div`
 const RoomInfo = (props) => {
     return (
         <StyledInfo>
-            <h3>깨끗하고 안전한 개인룸, 취사, 세탁 가능. 공항 3분거리 쾌적한 방</h3>
-            <p>설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명 설명</p>
-            <RoomMinorInfo price={props.price} score={props.score}/>
+            <h3>{props.title}</h3>
+            <p>{props.description}</p>
+            <RoomMinorInfo price={props.price} score={props.score} numOfReviews={props.numOfReviews}/>
         </StyledInfo>
     )
 };

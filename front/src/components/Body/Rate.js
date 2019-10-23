@@ -9,14 +9,14 @@ const StyledDiv = styled.div`
         margin: auto 0.5rem auto auto;
         color: green;
     {
-    
 `;
 
-const Rate = (props) => {
+const Rate = ({score, numOfReviews}) => {
     return (
         <StyledDiv>
-            <p className='star'>&#9733;</p>
-            <p>{props.score}</p>
+            <p>&#9733;</p>
+            <p>{score}</p>
+            <p>리뷰({numOfReviews})</p>
         </StyledDiv>
     )
 };

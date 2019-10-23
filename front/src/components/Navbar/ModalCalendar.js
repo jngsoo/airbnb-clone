@@ -5,13 +5,14 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
 const StyledCalendar = styled.div`
+    left: 0;
     top: 5rem;
-    z-index: 3;
+    z-index: 1;
     visibility: ${props => props.pop ? 'visible' : 'hidden'}
     position: fixed;
 `;
 
-const Calendar = () => {
+const ModalCalendar = (props) => {
     const [pop,setPop] = useState(true);
     const [selectionRange, setSelectionRange] = useState({
         startDate: new Date(),
@@ -29,7 +30,7 @@ const Calendar = () => {
     };
 
     return (
-            <StyledCalendar pop={false}>
+            <StyledCalendar pop={props.pop}>
                 <DateRangePicker
                     ranges={[selectionRange]}
                     onChange={handleSelect}
@@ -45,4 +46,4 @@ const Calendar = () => {
     )
 };
 
-export default Calendar;
+export default ModalCalendar;

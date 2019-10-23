@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import logo from './airbnb.svg';
 import SearchBar from './SearchBar';
 import UserInfo from './UserInfo';
-import Calendar from './Calendar';
 
 const StyledNavbar = styled.div`
     top: 0; // IMPORTANT!
@@ -35,7 +34,6 @@ const Navbar = () => {
                 <SearchBar/>
                 <UserInfo/>
             </StyledNavbar>
-            <Calendar/>
         </>
     );
 };

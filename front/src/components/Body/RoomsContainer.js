@@ -6,14 +6,18 @@ const StyledDiv = styled.div`
     flex: 6;
 `;
 
-const RoomsContainer = (props) => {
+const RoomsContainer = () => {
     return (
         <StyledDiv>
-            <Room price={'34,214'} score={4.92}/>
-            <Room price={'25,112'} score={3.91}/>
+            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
+            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
+            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
+            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
+            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
+            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
             <Room/>
-            <Room/>
-            <Room/><Room/><Room/><Room/><Room/><Room/><Room/><Room/>
+            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
+            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
         </StyledDiv>
     )
 }
