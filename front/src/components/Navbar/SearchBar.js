@@ -21,10 +21,12 @@ const SearchBar = () => {
 `;
 
     const popCalendar = () => {
+        if (guestsPopState) setGuestsPopState(!guestsPopState);
         setCalendarPopState(!calendarPopState);
     };
     const popGuests = () => {
-        setGuestsPopState(!guestsPopState);
+        if (calendarPopState) setCalendarPopState(!calendarPopState);
+        setGuestsPopState(!guestsPopState)
     };
 
     return (
