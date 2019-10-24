@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Room from './Room';
+import ModalOnLoading from "../Loading/ModalOnLoading";
 import axios from 'axios';
 
 const serverURL = 'http://localhost:5000';
@@ -21,7 +22,7 @@ const RoomsContainer = () => {
             })
             .catch(err => console.log(err))
     },[]);
-    if (onLoading) return  <StyledDiv>Loading....</StyledDiv>;
+    if (onLoading) return  <ModalOnLoading type={'spin'} color={'black'}/>;
 
     return (
         <StyledDiv>
