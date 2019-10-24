@@ -14,6 +14,11 @@ router.get('/google/callback', passport.authenticate('google', {failureRedirect:
     }
 );
 
+// jwt 해석
+router.post('/google/verify', function(req, res, next) {
+        if (req.body.userToken) return res.json(jwt.decodeJwt(req.body.userToken));
+        return res.json({});
+});
 router.get('/naver',passport.authenticate('naver', {failureRedirect: '/fail'}), );
 
 router.get('/naver/callback', passport.authenticate('naver', {failureRedirect: 'login'}), 

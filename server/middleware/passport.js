@@ -10,7 +10,8 @@ passport.use(new NaverStrategy({
     callbackURL: process.env.NAVER_OAUTH_CALLBACK_URL
     },
     function(accessToken, refreshToken, profile, done) {
-        // console.log(profile)
+
+        console.log(profile)
         User.findOrCreate({ 
             where: {user_id: profile.id},
             defaults: {
@@ -24,9 +25,12 @@ passport.use(new NaverStrategy({
 ));
 
 passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_OAUTH_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET,
-    callbackURL: process.env.GOOGLE_OAUTH_CALLBACK_URL
+    // clientID: process.env.GOOGLE_OAUTH_CLIENT_ID,
+    // clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET,
+    // callbackURL: process.env.GOOGLE_OAUTH_CALLBACK_URL
+    clientID: "963124463174-04p8lmorlb2srj9qk1omqobbkm85gggs.apps.googleusercontent.com",
+    clientSecret: "HopYR5Vl3wrv1pCPfjphooSu",
+    callbackURL: "http://localhost:5000/auth/google/callback"
   },
     function(accessToken, refreshToken, profile, done) {
         const userGoogleId = Number(profile.id)/10000

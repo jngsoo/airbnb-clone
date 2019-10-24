@@ -5,6 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('rooms', [
         {
             room_id: 2933,
+            thumbnail_img: "https://a0.muscache.com/im/pictures/4d358b28-41ad-465a-aaa6-cab59a62a6d3.jpg?aki_policy=large",
             fk_host_id: 1121,
             name: 'Art House (Room 01)- 외국인전용',
             description: '설명설명',
@@ -18,6 +19,7 @@ module.exports = {
         },
         {
             room_id: 2934,
+            thumbnail_img: "https://a0.muscache.com/im/pictures/65974815/f3da8745_original.jpg?aki_policy=large",
             fk_host_id: 2912,
             name: '★Directly Connected to Station ☆ ',
             description: '설명설명',
@@ -31,6 +33,7 @@ module.exports = {
         },
         {
             room_id: 2935,
+            thumbnail_img: "https://a0.muscache.com/im/pictures/8fdcf5c3-63de-4968-9813-43d67b9c8058.jpg?aki_policy=large",
             fk_host_id: 1121,
             name: 'Banana homes - Single room(private bath) ',
             description: '설명설명',
@@ -44,6 +47,7 @@ module.exports = {
         },
         {
             room_id: 2936,
+            thumbnail_img: "https://a0.muscache.com/im/pictures/80a2eedb-6ba9-4e7b-bd9e-6cf6aa59c75a.jpg?aki_policy=large",
             fk_host_id: 2912,
             name: 'Jeju cozy house',
             description: '설명설명',
@@ -57,6 +61,7 @@ module.exports = {
         },
         {
             room_id: 2937,
+            thumbnail_img: "https://a0.muscache.com/im/pictures/17180c87-d74a-439b-833f-8f40d5278759.jpg?aki_policy=large",
             fk_host_id: 1121,
             name: 'Busan nice house',
             description: '설명설명',

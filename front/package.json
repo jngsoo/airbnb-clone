@@ -8,6 +8,7 @@
     "date-fns": "^2.5.1",
     "dotenv": "^8.2.0",
     "react": "^16.10.2",
+    "react-cookie": "^4.0.1",
     "react-date-range": "^1.0.0-beta",
     "react-dates": "^21.3.1",
     "react-dom": "^16.10.2",

@@ -22,7 +22,7 @@ const RoomsContainer = () => {
             })
             .catch(err => console.log(err))
     },[]);
-    if (onLoading) return  <ModalOnLoading type={'spin'} color={'black'}/>;
+    if (onLoading) return  <ModalOnLoading type={'spin'} color={'lightgray'}/>;
 
     return (
         <StyledDiv>
@@ -32,7 +32,8 @@ const RoomsContainer = () => {
                       price={`${(room.price).toLocaleString()}`}
                       score={room.rate}
                       numOfReviews={room.number_of_reviews}
-                                    />
+                      img={room.thumbnail_img}
+                />
             )}
         </StyledDiv>
     )

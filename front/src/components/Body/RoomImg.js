@@ -9,7 +9,7 @@ const StyledImg = styled.img`
 
 const RoomImg = (props) => {
     return (
-        <StyledImg src={'https://a0.muscache.com/im/pictures/c448d8f3-3c31-4119-b69f-80f251621f94.jpg?aki_policy=large'}/>
+        <StyledImg src={props.img}/>
     )
 };
 

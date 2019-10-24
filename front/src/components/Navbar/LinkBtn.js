@@ -5,6 +5,9 @@ const StyledDiv = styled.div`
     border: solid 0.05rem white;
     margin: auto;
     color: dimgray;
+    width: 10rem; 
+    text-align: center;
+    align-items: center;
     
     &:hover {
         height: 3rem;
@@ -20,8 +23,8 @@ const StyledAnchor = styled.a`
 
 const LinkBtn = (props) => {
     return (
-        <StyledDiv className='LinkBtn'>
-            <StyledAnchor href="http://localhost:5000/auth/google">
+        <StyledDiv onClick={props.onClick} className='LinkBtn'>
+            <StyledAnchor href={props.link}>
             <p>{props.name}</p>
             </StyledAnchor>
         </StyledDiv>

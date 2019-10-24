@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
 const Room = (props) => {
     return (
         <StyledDiv>
-            <RoomImg/>
+            <RoomImg img={props.img}/>
             <RoomInfo title={props.title} description={props.description} price={props.price} score={props.score} numOfReviews={props.numOfReviews}/>
         </StyledDiv>
     )

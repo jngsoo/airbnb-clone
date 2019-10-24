@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
             type:DataTypes.BIGINT(11),
             primaryKey: true
         },
+        thumbnail_img: DataTypes.STRING,
         fk_host_id: DataTypes.BIGINT(11),
         name: DataTypes.STRING,
         description: DataTypes.TEXT,
