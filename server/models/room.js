@@ -22,12 +22,16 @@ module.exports = (sequelize, DataTypes) => {
     Room.associate = function(models) {
     // associations can be defined here
     };
+    Room.getAllRooms = async function() {
+        return await Room.findAll()
+    };
     Room.getAllTheHostRooms = async function(host_id) {
         return await Room.findAll({where: {fk_host_id: host_id}})
     };
     Room.getAllTheCityRooms = async function(city) {
         return await Room.findAll({where: {city: city}})
     };
+
     
     return Room;
 };

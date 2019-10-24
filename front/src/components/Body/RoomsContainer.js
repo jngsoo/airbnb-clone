@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Room from './Room';
+import axios from 'axios';
+
+const serverURL = 'http://localhost:5000';
 
 const StyledDiv = styled.div`
     flex: 6;
 `;
 
 const RoomsContainer = () => {
+    const [onLoading, setOnLoading] = useState(true);
+    const [rooms, setRooms] = useState([]);
+
+    useEffect( () => {
+        axios.get(serverURL+'/room')
+            .then(response => {
+                setRooms(response.data);
+                setOnLoading(false);
+            })
+            .catch(err => console.log(err))
+    },[]);
+    if (onLoading) return  <StyledDiv>Loading....</StyledDiv>;
+
     return (
         <StyledDiv>
-            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
-            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
-            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
-            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
-            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
-            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
-            <Room/>
-            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
-            <Room title={'쾌적한 8인 도미토리룸. 공항 3분 거리.'} description={'설명 설명'} price={'34,214'} score={4.92} numOfReviews={20}/>
+            {rooms.map(room =>
+                <Room title={room.name}
+                      description={room.description}
+                      price={`${room.price}`}
+                      score={room.rate}
+                      numOfReviews={room.number_of_reviews}
+                                    />
+            )}
         </StyledDiv>
     )
-}
+};
 
 export default RoomsContainer;
