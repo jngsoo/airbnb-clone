@@ -1,15 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import GuestType from "./GuestType";
-
-const StyledTransparent = styled.div`
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    visibility: ${props => props.pop ? 'visible' : 'hidden'}
-    position:fixed;
-    z-index: 3;
-`;
+import StyledTransparent from "../StyledComponents/Transparent";
 
 const StyledDiv = styled.div`
     z-index: 3;
