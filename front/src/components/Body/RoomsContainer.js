@@ -29,7 +29,7 @@ const RoomsContainer = () => {
             {rooms.map(room =>
                 <Room title={room.name}
                       description={room.description}
-                      price={`${room.price}`}
+                      price={`${(room.price).toLocaleString()}`}
                       score={room.rate}
                       numOfReviews={room.number_of_reviews}
                                     />
