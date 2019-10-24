@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import GuestType from "./GuestType";
 import StyledTransparent from "../StyledComponents/Transparent";
+import StyledBtnContainer from "../StyledComponents/ModalBtnContainer";
 
 const StyledDiv = styled.div`
     z-index: 3;
@@ -20,11 +21,11 @@ const StyledDiv = styled.div`
     padding: 1rem;
     
 `;
-const StyledBtnContainer = styled.div`
-    display: flex;
-    justify-content: space-between
-    margin: auto 0;
-`;
+// const StyledBtnContainer = styled.div`
+//     display: flex;
+//     justify-content: space-between
+//     margin: auto 0;
+// `;
 const CancelBtn = styled.div`
     display: flex;
     align-items: center; 

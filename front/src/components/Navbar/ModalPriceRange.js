@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
 import StyledTransparent from "../StyledComponents/Transparent";
+import StyledBtnContainer from "../StyledComponents/ModalBtnContainer";
+import ConfirmBtn from "../StyledComponents/ModalConfirmBtn";
+import CancelBtn from "../StyledComponents/ModalCancelBtn";
 
 const StyledDiv = styled.div`
     z-index: 3;
@@ -17,10 +20,7 @@ const StyledDiv = styled.div`
     border-radius: 0.5rem;
     visibility: ${props => props.pop ? 'visible' : 'hidden'}
 `;
-const StyledBtnContainer = styled.div`
-    display: flex;
-    justify-content: flex-end;
-`;
+
 
 const AirbnbSlider = withStyles({
     root: {
@@ -85,6 +85,10 @@ const ModalPriceRange = (props) => {
                         max={154000}
                         getAriaValueText={setPriceRange}
                     />
+                    <StyledBtnContainer>
+                        <CancelBtn>취소</CancelBtn>
+                        <ConfirmBtn>확인</ConfirmBtn>
+                    </StyledBtnContainer>
                 </StyledDiv>
             </StyledTransparent>
         </>
