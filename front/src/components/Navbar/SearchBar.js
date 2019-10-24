@@ -6,6 +6,7 @@ import SearchInput from './SearchInput';
 import OptionalSearchBtn from "./OptionalSearchBtn";
 import ModalCalendar from "./ModalCalendar";
 import ModalGuests from "./ModalGuests";
+import ModalPriceRange from './ModalPriceRange';
 
 const StyledDiv = styled.div`
         display: flex;
@@ -17,52 +18,14 @@ const StyledDiv = styled.div`
         min-width: 40rem;
 `;
 
-const SearchBar = () => {
-    const [calendarPopState, setCalendarPopState] = useState(false);
-    const [guestsPopState, setGuestsPopState] = useState(false);
-    const [guestsTotal, setGuestsTotal] = useState(0);
-    const [adultCount, setAdultCount] = useState(0);
-    const [childrenCount, setChildrenCount] = useState(0);
-    const [infantCount, setInfantCount] = useState(0);
-    const counter = {
-        adult : {count:adultCount, setCount:setAdultCount},
-        children: {count:childrenCount, setCount:setChildrenCount},
-        infant: {count:infantCount, setCount:setInfantCount}
-    };
-
-    const popCalendar = () => {
-        if (guestsPopState) setGuestsPopState(!guestsPopState);
-        setCalendarPopState(!calendarPopState);
-    };
-    const popGuests = () => {
-        if (calendarPopState) setCalendarPopState(!calendarPopState);
-        setGuestsPopState(!guestsPopState)
-    };
-    const updateGuestsTotal = (increase, isKid) => {
-        setGuestsTotal(guestsTotal + (increase ? 1 : -1));
-        // 유아, 어린이 추가 시 어른 없을 때 1명 자동 추가 기능
-        if (increase && isKid && !adultCount) {
-            console.log(counter);
-            setAdultCount(adultCount + 1);
-            setGuestsTotal(guestsTotal + 2);
-        }
-    };
-    const removeTotalGuests = () => {
-        setGuestsTotal(0);
-        setAdultCount(0);
-        setChildrenCount(0);
-        setInfantCount(0);
-    };
-
+const SearchBar = (props) => {
     return (
         <>
             <StyledDiv>
                 <SearchInput/>
-                <OptionalSearchBtn onClick={popCalendar} name="날짜" icon={calendarIcon}/>
-                <OptionalSearchBtn onClick={popGuests} name={`인원 ${guestsTotal}명`} icon={guestsIcon}/>
+                <OptionalSearchBtn onClick={props.popCalendar} name="날짜" icon={calendarIcon}/>
+                <OptionalSearchBtn onClick={props.popGuests} name={`인원 ${props.guestsTotal}명`} icon={guestsIcon}/>
             </StyledDiv>
-            <ModalCalendar onClick={popCalendar} pop={calendarPopState}/>
-            <ModalGuests counter={counter} init={removeTotalGuests} onUpdate={updateGuestsTotal} onClick={popGuests} pop={guestsPopState}/>
         </>
     )
 };

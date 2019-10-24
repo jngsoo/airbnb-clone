@@ -22,7 +22,7 @@ const StyledDiv = styled.div`
 
 const OptionalFilterBtn = (props) => {
     return (
-        <StyledDiv>
+        <StyledDiv onClick={props.onClick}>
             {props.name}
         </StyledDiv>
     );

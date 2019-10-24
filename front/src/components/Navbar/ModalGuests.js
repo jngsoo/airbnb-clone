@@ -2,21 +2,31 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import GuestType from "./GuestType";
 
+const StyledTransparent = styled.div`
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    visibility: ${props => props.pop ? 'visible' : 'hidden'}
+    position:fixed;
+    z-index: 3;
+`;
+
 const StyledDiv = styled.div`
+    z-index: 3;
     display: flex;
+    background-color: white;
     flex-direction: column;
-    position: fixed;
+    position: sticky;
     height: 15rem;
     width: 20rem;
-    margin-top: 8rem;
     left: 29%;
-    background-color: white;
+    
     
     border: solid 0.05rem lightgray;
     border-radius: 0.5rem;
-    
-    padding: 1rem;
     visibility: ${props => props.pop ? 'visible' : 'hidden'}
+    padding: 1rem;
+    
 `;
 const StyledBtnContainer = styled.div`
     display: flex;
@@ -59,15 +69,17 @@ const ModalGuests = (props) => {
     };
 
     return (
-        <StyledDiv pop={props.pop}>
-            <GuestType counter={props.counter.adult} onUpdate={props.onUpdate} type='성인'/>
-            <GuestType counter={props.counter.children} onUpdate={props.onUpdate} type='어린이'/>
-            <GuestType counter={props.counter.infant} onUpdate={props.onUpdate} type='유아'/>
-            <StyledBtnContainer>
-                <CancelBtn onClick={props.init}>삭제</CancelBtn>
-                <ConfirmBtn onClick={confirmGuests}>확인</ConfirmBtn>
-            </StyledBtnContainer>
-        </StyledDiv>
+        <StyledTransparent pop={props.pop}>
+            <StyledDiv pop={props.pop}>
+                <GuestType counter={props.counter.adult} onUpdate={props.onUpdate} type='성인'/>
+                <GuestType counter={props.counter.children} onUpdate={props.onUpdate} type='어린이'/>
+                <GuestType counter={props.counter.infant} onUpdate={props.onUpdate} type='유아'/>
+                <StyledBtnContainer>
+                    <CancelBtn onClick={props.init}>삭제</CancelBtn>
+                    <ConfirmBtn onClick={confirmGuests}>확인</ConfirmBtn>
+                </StyledBtnContainer>
+            </StyledDiv>
+        </StyledTransparent>
     )
 };
 

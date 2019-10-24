@@ -4,14 +4,21 @@ import styled from 'styled-components';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
-const StyledCalendar = styled.div`
+
+const StyledTransparent = styled.div`
     left: 0;
     top: 8rem;
-    background-color: white;
+    width: 100%;
+    height: 100%;
     border: solid white 0.05rem;
     z-index: 1;
     visibility: ${props => props.pop ? 'visible' : 'hidden'}
+    background-color: rgba(255, 255, 255, 0.8);
     position: fixed;
+`;
+const StyledModalCalendar = styled.div`
+    width: 65%;
+    background-color: white;
 `;
 const StyledBtnContainer = styled.div`
     display: flex;
@@ -52,20 +59,22 @@ const ModalCalendar = (props) => {
     };
 
     return (
-            <StyledCalendar pop={props.pop}>
-                <DateRangePicker
-                    ranges={[selectionRange]}
-                    onChange={handleSelect}
-                    direction='horizontal'
-                    months={2}
-                    moveRangeOnFirstSelection={true}
-                    color={'black'}
-                />
-                <StyledBtnContainer>
-                    <StyledBtn onClick={confirmDateRange}>확인</StyledBtn>
-                    <StyledBtn onClick={props.onClick}>닫기</StyledBtn>
-                </StyledBtnContainer>
-            </StyledCalendar>
+            <StyledTransparent pop={props.pop}>
+                <StyledModalCalendar>
+                    <DateRangePicker
+                        ranges={[selectionRange]}
+                        onChange={handleSelect}
+                        direction='horizontal'
+                        months={2}
+                        moveRangeOnFirstSelection={true}
+                        color={'black'}
+                    />
+                    <StyledBtnContainer>
+                        <StyledBtn onClick={confirmDateRange}>확인</StyledBtn>
+                        <StyledBtn onClick={props.onClick}>닫기</StyledBtn>
+                    </StyledBtnContainer>
+                </StyledModalCalendar>
+            </StyledTransparent>
     )
 };
 
