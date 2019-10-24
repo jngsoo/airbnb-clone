@@ -121,7 +121,9 @@ const Navbar = () => {
                          onUpdate={updateGuestsTotal}
                          onClick={popGuests}
                          pop={guestsPopState}/>
-            <ModalPriceRange pop={pricePopState}/>
+            <ModalPriceRange pop={pricePopState}
+                             onClick={popPrice}
+                                                />
         </>
 
     );

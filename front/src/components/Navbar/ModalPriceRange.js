@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
@@ -14,8 +14,8 @@ const StyledDiv = styled.div`
     padding: 2rem;
     position: fixed;
     background-color: white;
-    height: 10rem;
-    width: 15rem;
+    height: 14rem;
+    width: 20rem;
     border: solid 0.05rem lightgray;
     border-radius: 0.5rem;
     visibility: ${props => props.pop ? 'visible' : 'hidden'}
@@ -69,9 +69,36 @@ const AirbnbSlider = withStyles({
     },
 })(Slider);
 
+const StyledPriceBoard = styled.div`
+    display: flex;
+    height: 4rem;
+    border: solid 0.05rem gray;
+    margin: 1rem auto;
+    
+    & > input {
+        width: 6rem;
+        height: 3rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        margin: auto;
+        border: solid 0.05rem lightgray;
+        border-radius: 0.5rem;
+        color: gray;
+    }   
+    
+`;
+
 const ModalPriceRange = (props) => {
-    const setPriceRange = (value, index) => {
-        console.log(value, index)
+    const [startPrice, setStartPrice] = useState(122);
+    const [endPrice, setEndPrice] = useState();
+
+    const getPrice = (price, index) => {
+        index===0 ? setStartPrice(price) : setEndPrice(price)
+    };
+    const confirmPriceRange = () => {
+        alert(`${startPrice} ${endPrice}`);
+        props.onClick()
     };
     return (
         <>
@@ -83,11 +110,15 @@ const ModalPriceRange = (props) => {
                         valueLabelDisplay="on"
                         min={8293}
                         max={154000}
-                        getAriaValueText={setPriceRange}
+                        getAriaValueText={getPrice}
                     />
+                    <StyledPriceBoard>
+                        <input type="text" value={`₩ ${startPrice}`}/>
+                        <input type="text" value={`₩ ${endPrice}`}/>
+                    </StyledPriceBoard>
                     <StyledBtnContainer>
-                        <CancelBtn>취소</CancelBtn>
-                        <ConfirmBtn>확인</ConfirmBtn>
+                        <CancelBtn onClick={props.onClick}>취소</CancelBtn>
+                        <ConfirmBtn onClick={confirmPriceRange}>확인</ConfirmBtn>
                     </StyledBtnContainer>
                 </StyledDiv>
             </StyledTransparent>
