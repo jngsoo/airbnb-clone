@@ -9,7 +9,6 @@ router.get('/google', passport.authenticate('google', { scope: ['https://www.goo
 router.get('/google/callback', passport.authenticate('google', {failureRedirect: 'http://localhost:3000' }),
     function(req, res) {
         if(req.user) jwt.issueNewToken(req, res);
-        console.log(req.user);
         return res.redirect('http://localhost:3000');
     }
 );
