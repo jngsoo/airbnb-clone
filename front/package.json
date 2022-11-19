@@ -17,7 +17,7 @@
     "react-kakao-map": "0.0.0",
     "react-kakao-maps": "Musma/react-kakao-maps",
     "react-loading": "^2.0.3",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "rheostat": "^4.1.0",
     "styled-components": "^4.4.0"
   },
